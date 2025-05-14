@@ -1,0 +1,219 @@
+
+
+/* Animated Voice-Related Shapes */
+.shape {
+    position: absolute;
+    z-index: 0;
+}
+
+/* Sound Wave */
+.sound-wave {
+    width: 200px;
+    height: 100px;
+    top: 20%;
+    left: 100px;
+    animation: float-slow 12s ease-in-out infinite;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sound-wave .bar {
+    width: 8px;
+    background-color: rgba(99, 102, 241, 0.2);
+    border-radius: 4px;
+    animation: sound-wave 1.5s ease-in-out infinite;
+}
+
+.sound-wave .bar:nth-child(1) { height: 30px; animation-delay: 0.1s; }
+.sound-wave .bar:nth-child(2) { height: 50px; animation-delay: 0.2s; }
+.sound-wave .bar:nth-child(3) { height: 70px; animation-delay: 0.3s; }
+.sound-wave .bar:nth-child(4) { height: 90px; animation-delay: 0.4s; }
+.sound-wave .bar:nth-child(5) { height: 60px; animation-delay: 0.5s; }
+.sound-wave .bar:nth-child(6) { height: 40px; animation-delay: 0.6s; }
+.sound-wave .bar:nth-child(7) { height: 80px; animation-delay: 0.7s; }
+.sound-wave .bar:nth-child(8) { height: 50px; animation-delay: 0.8s; }
+
+/* Microphone */
+.microphone {
+    width: 100px;
+    height: 100px;
+    background-color: rgba(99, 102, 241, 0.1);
+    border-radius: 50%;
+    bottom: 25%;
+    right: 10%;
+    animation: pulse 3s ease-in-out infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(99, 102, 241, 0.2);
+}
+
+.microphone::before {
+    content: '\f130';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    font-size: 40px;
+    color: rgba(99, 102, 241, 0.4);
+}
+
+/* Voice Command */
+.voice-command {
+    width: 220px;
+    height: 60px;
+    background-color: rgba(167, 139, 250, 0.1);
+    border-radius: 30px;
+    top: 15%;
+    right: 15%;
+    animation: float-medium 10s ease-in-out infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(167, 139, 250, 0.2);
+}
+
+.voice-command::before {
+    content: '"Add task: Meeting"';
+    font-family: 'Arial', sans-serif;
+    font-size: 14px;
+    color: rgba(167, 139, 250, 0.6);
+}
+
+/* Task Card with Voice Icon */
+.task-card {
+    width: 180px;
+    height: 120px;
+    background-color: rgba(99, 102, 241, 0.1);
+    border-radius: 12px;
+    bottom: 15%;
+    left: 10%;
+    animation: float 8s ease-in-out infinite;
+    border: 2px solid rgba(99, 102, 241, 0.2);
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.task-card::before {
+    content: '\f2a0';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    font-size: 16px;
+    color: rgba(99, 102, 241, 0.4);
+    margin-bottom: 10px;
+}
+
+.task-card::after {
+    content: '';
+    width: 70%;
+    height: 8px;
+    background-color: rgba(99, 102, 241, 0.2);
+    border-radius: 4px;
+    margin: 5px 0;
+}
+
+/* Circular Sound Wave */
+.circular-wave {
+    width: 150px;
+    height: 150px;
+    top: 40%;
+    right: 30%;
+    position: absolute;
+    animation: float-fast 6s ease-in-out infinite;
+}
+
+.circular-wave .circle {
+    position: absolute;
+    border: 2px solid rgba(167, 139, 250, 0.2);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: ripple 4s linear infinite;
+}
+
+.circular-wave .circle:nth-child(1) {
+    width: 40px;
+    height: 40px;
+    animation-delay: 0s;
+}
+
+.circular-wave .circle:nth-child(2) {
+    width: 80px;
+    height: 80px;
+    animation-delay: 1s;
+}
+
+.circular-wave .circle:nth-child(3) {
+    width: 120px;
+    height: 120px;
+    animation-delay: 2s;
+}
+
+/* Animation keyframes */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(0deg);
+    }
+}
+
+@keyframes float-slow {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes float-medium {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-25px);
+    }
+}
+
+@keyframes float-fast {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-30px);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+}
+
+@keyframes sound-wave {
+    0%, 100% {
+        transform: scaleY(0.5);
+    }
+    50% {
+        transform: scaleY(1);
+    }
+}
+
+@keyframes ripple {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1.5);
+    }
+}

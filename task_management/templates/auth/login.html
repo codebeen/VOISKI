@@ -1,0 +1,87 @@
+{% extends 'layouts/base_auth.html' %}
+
+{% load static %} 
+
+{% block title %}VOISKI | Login{% endblock %} 
+
+{% block style %}
+<style>
+  .create-account:hover, .forgot-link:hover {
+    text-decoration: underline;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="login-container col-12 col-md-8 col-lg-6 col-xl-5">
+  <div class="d-flex justify-content-center align-items-center">
+    <img
+      src="{% static 'assets/images/voiski-logo.png' %}"
+      alt="Voiski Logo"
+      class="img-fluid mx-auto d-block mb-3"
+      style="max-width: 100px; height: auto"
+    />
+  </div>
+  <!-- Login Card -->
+  <div class="card p-4 w-100 shadow border-0">
+    <div class="card-body">
+      <h2 class="card-title text-center fs-3 mb-4 fw-normal">
+        Login to <span class="fw-bold">VOISKI</span>
+      </h2>
+      <!-- <p class="text-center text-muted mb-4">
+        Access your voice-powered task assistant
+      </p> -->
+
+      <!-- Login Form -->
+      <form method="post">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            placeholder="Enter your email"
+            required
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            name="password"
+            placeholder="Enter your password"
+            required
+          />
+        </div>
+
+        <div class="mb-4 d-flex justify-content-end">
+          <a href="{% url 'show_forgot_password' %}" class="forgot-link text-decoration-none"
+            >Forgot password?</a
+          >
+        </div>
+
+        <button
+          type="submit"
+          class="btn btn-primary w-100 d-flex align-items-center justify-content-center"
+        >
+          Continue
+        </button>
+      </form>
+    </div>
+
+    <div class="card-footer bg-transparent text-center border-0 mt-3 pt-3">
+      <p class="mb-0">
+        Don't have an account?
+        <a href="{% url 'show_create_account' %}" class="create-account text-decoration-none"
+          >Create account</a
+        >
+      </p>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,119 @@
+{% extends 'layouts/base_auth.html' %}
+
+{% load static %} 
+
+{% block title %}VOISKI | Create Account{% endblock %} 
+
+{% block style %}
+<style>
+  .create-account:hover, .forgot-link:hover {
+    text-decoration: underline;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="login-container col-12 col-md-10 col-lg-8 col-xl-6">
+  <div class="d-flex justify-content-center align-items-center">
+    <img
+      src="{% static 'assets/images/voiski-logo.png' %}"
+      alt="Voiski Logo"
+      class="img-fluid mx-auto d-block mb-3"
+      style="max-width: 100px; height: auto"
+    />
+  </div>
+  <!-- Create Account Card -->
+  <div class="card p-4 w-100 shadow border-0">
+    <div class="card-body">
+      <h2 class="card-title text-center fs-3 mb-5 fw-semibold">
+        Create Account
+      </h2>
+      <!-- <p class="text-center text-muted mb-4">
+        Access your voice-powered task assistant
+      </p> -->
+
+      <!-- Login Form -->
+      <form method="post">
+        {% csrf_token %}
+        <div class="mb-3 d-flex flex-column flex-md-row justify-content-between gap-3">
+          <div class="flex-fill">
+            <label for="first_name" class="form-label">First Name <span class="text-danger">*</span></label>
+            <input
+              type="text"
+              class="form-control"
+              id="first_name"
+              name="first_name"
+              placeholder="Enter your first name"
+              required
+            />
+          </div>
+      
+          <div class="flex-fill">
+            <label for="last_name" class="form-label">Last Name <span class="text-danger">*</span></label>
+            <input
+              type="text"
+              class="form-control"
+              id="last_name"
+              name="last_name"
+              placeholder="Enter your last name"
+              required
+            />
+          </div>
+        </div>
+      
+        <div class="mb-3">
+          <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            name="email"
+            placeholder="Enter your email"
+            required
+          />
+        </div>
+      
+        <div class="mb-3">
+          <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            name="password"
+            placeholder="Enter your password"
+            required
+          />
+        </div>
+      
+        <div class="mb-3">
+          <label for="confirm_password" class="form-label">Confirm Password <span class="text-danger">*</span></label>
+          <input
+            type="password"
+            class="form-control"
+            id="confirm_password"
+            name="confirm_password"
+            placeholder="Re-enter your password"
+            required
+          />
+        </div>
+      
+        <button
+          type="submit"
+          class="btn btn-primary w-100 d-flex align-items-center justify-content-center"
+        >
+          Continue
+        </button>
+      </form>
+    </div>
+
+    <div class="card-footer bg-transparent text-center border-0 mt-3 pt-3">
+      <p class="mb-0">
+        Already have an account?
+        <a href="{% url 'show_login' %}" class="create-account text-decoration-none"
+          >Login</a
+        >
+      </p>
+    </div>
+  </div>
+</div>
+{% endblock %}
